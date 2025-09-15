@@ -1,0 +1,90 @@
+Objective
+Containerize a microservices-based application using Node.js, Docker, and Docker Compose.
+
+Task Overview
+You are provided with source code for three Node.js microservices:
+User Service (Port 3000)
+Product Service (Port 3001)
+Gateway Service (Port 3003)
+
+Your task is to containerize these services and orchestrate them using Docker Compose.
+
+Requirements
+1. Dockerfile Creation (15 marks)
+Create a Dockerfile for each service (3 services × 5 marks) that:
+Uses an appropriate Node.js base image
+Sets a working directory
+Installs dependencies
+Exposes the correct port
+Includes a valid CMD instruction
+
+
+2. Docker Compose Configuration (10 marks)
+Create a docker-compose.yml file that:
+Defines all three services
+Maps correct ports
+Configures a shared network for communication
+
+3. Local Testing & Validation (10 marks)
+Run the application using docker-compose up on your local machine.
+Ensure all services start correctly
+Confirm accessibility via localhost on respective ports
+
+4. Documentation (10 marks)
+Provide a README.md file that includes:
+Setup instructions
+How to test each service
+Basic troubleshooting tips
+Screenshots showing services running in Docker
+
+Deliverables
+Create a ZIP file with the following structure:
+
+submission/
+├── user-service/
+│   └── Dockerfile
+├── product-service/
+│   └── Dockerfile
+├── gateway-service/
+│   └── Dockerfile
+├── docker-compose.yml
+└── README.md
+
+Evaluation Criteria
+Functionality: Services build and run successfully
+Configuration: Correct Dockerfile and Compose setup
+Documentation: Clear and concise README
+Testing: All services accessible and working
+
+Submission Guidelines
+Create a ZIP file containing:
+All Dockerfiles
+docker-compose.yml
+
+README.md
+
+File structure should match:
+
+submission/
+
+├── user-service/
+
+│   └── Dockerfile
+
+├── product-service/
+
+│   └── Dockerfile
+
+├── order-service/
+
+│   └── Dockerfile
+
+├── gateway-service/
+
+│   └── Dockerfile
+
+├── docker-compose.yml
+
+└── README.md
+
+Fork the provided repository, push your changes and advancements to your forked repo, and share the link in the submission.
