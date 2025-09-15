@@ -1,0 +1,307 @@
+=== Microservices Testing Script ===
+This script tests all microservices endpoints
+
+Waiting for services to start...
+=== Testing Individual Services ===
+[1;33mTesting: User Service - Root[0m
+URL: http://localhost:3000
+[0;32m✓ SUCCESS - HTTP 200[0m
+{
+  "service": "User Service",
+  "version": "1.0.0",
+  "status": "running",
+  "port": "3000"
+}
+
+[1;33mTesting: User Service - Health Check[0m
+URL: http://localhost:3000/health
+[0;32m✓ SUCCESS - HTTP 200[0m
+{
+  "status": "healthy",
+  "timestamp": "2025-09-15T13:59:40.687Z",
+  "service": "user-service"
+}
+
+[1;33mTesting: User Service - Get All Users[0m
+URL: http://localhost:3000/users
+[0;32m✓ SUCCESS - HTTP 200[0m
+{
+  "success": true,
+  "data": [
+    {
+      "id": 1,
+      "name": "John Doe",
+      "email": "john@example.com",
+      "age": 30
+    },
+    {
+      "id": 2,
+      "name": "Jane Smith",
+      "email": "jane@example.com",
+      "age": 25
+    },
+    {
+      "id": 3,
+      "name": "Bob Johnson",
+      "email": "bob@example.com",
+      "age": 35
+    }
+  ],
+  "count": 3
+}
+
+[1;33mTesting: Product Service - Root[0m
+URL: http://localhost:3001
+[0;32m✓ SUCCESS - HTTP 200[0m
+{
+  "service": "Product Service",
+  "version": "1.0.0",
+  "status": "running",
+  "port": "3001"
+}
+
+[1;33mTesting: Product Service - Health Check[0m
+URL: http://localhost:3001/health
+[0;32m✓ SUCCESS - HTTP 200[0m
+{
+  "status": "healthy",
+  "timestamp": "2025-09-15T13:59:40.768Z",
+  "service": "product-service"
+}
+
+[1;33mTesting: Product Service - Get All Products[0m
+URL: http://localhost:3001/products
+[0;32m✓ SUCCESS - HTTP 200[0m
+{
+  "success": true,
+  "data": [
+    {
+      "id": 1,
+      "name": "Laptop",
+      "description": "High-performance laptop",
+      "price": 999.99,
+      "category": "Electronics",
+      "stock": 50
+    },
+    {
+      "id": 2,
+      "name": "Smartphone",
+      "description": "Latest smartphone model",
+      "price": 699.99,
+      "category": "Electronics",
+      "stock": 100
+    },
+    {
+      "id": 3,
+      "name": "Coffee Mug",
+      "description": "Ceramic coffee mug",
+      "price": 12.99,
+      "category": "Home",
+      "stock": 200
+    },
+    {
+      "id": 4,
+      "name": "Book",
+      "description": "Programming guide",
+      "price": 29.99,
+      "category": "Books",
+      "stock": 75
+    }
+  ],
+  "count": 4,
+  "filters": {}
+}
+
+[1;33mTesting: Gateway Service - Root[0m
+URL: http://localhost:3003
+[0;32m✓ SUCCESS - HTTP 200[0m
+{
+  "service": "API Gateway",
+  "version": "1.0.0",
+  "status": "running",
+  "port": "3003",
+  "routes": {
+    "users": "/api/users",
+    "products": "/api/products",
+    "health": "/health"
+  }
+}
+
+[1;33mTesting: Gateway Service - Health Check[0m
+URL: http://localhost:3003/health
+[0;32m✓ SUCCESS - HTTP 200[0m
+{
+  "status": "healthy",
+  "timestamp": "2025-09-15T13:59:40.854Z",
+  "service": "gateway-service"
+}
+
+[1;33mTesting: Gateway Service - Services Health[0m
+URL: http://localhost:3003/health/services
+[0;32m✓ SUCCESS - HTTP 200[0m
+{
+  "gateway": "healthy",
+  "services": [
+    {
+      "name": "user-service",
+      "status": "healthy",
+      "url": "http://user-service:3000"
+    },
+    {
+      "name": "product-service",
+      "status": "healthy",
+      "url": "http://product-service:3001"
+    }
+  ],
+  "timestamp": "2025-09-15T13:59:40.887Z"
+}
+
+[1;33mTesting: Gateway Service - Users API[0m
+URL: http://localhost:3003/api/users
+[0;32m✓ SUCCESS - HTTP 200[0m
+{
+  "success": true,
+  "data": [
+    {
+      "id": 1,
+      "name": "John Doe",
+      "email": "john@example.com",
+      "age": 30
+    },
+    {
+      "id": 2,
+      "name": "Jane Smith",
+      "email": "jane@example.com",
+      "age": 25
+    },
+    {
+      "id": 3,
+      "name": "Bob Johnson",
+      "email": "bob@example.com",
+      "age": 35
+    }
+  ],
+  "count": 3
+}
+
+[1;33mTesting: Gateway Service - Products API[0m
+URL: http://localhost:3003/api/products
+[0;32m✓ SUCCESS - HTTP 200[0m
+{
+  "success": true,
+  "data": [
+    {
+      "id": 1,
+      "name": "Laptop",
+      "description": "High-performance laptop",
+      "price": 999.99,
+      "category": "Electronics",
+      "stock": 50
+    },
+    {
+      "id": 2,
+      "name": "Smartphone",
+      "description": "Latest smartphone model",
+      "price": 699.99,
+      "category": "Electronics",
+      "stock": 100
+    },
+    {
+      "id": 3,
+      "name": "Coffee Mug",
+      "description": "Ceramic coffee mug",
+      "price": 12.99,
+      "category": "Home",
+      "stock": 200
+    },
+    {
+      "id": 4,
+      "name": "Book",
+      "description": "Programming guide",
+      "price": 29.99,
+      "category": "Books",
+      "stock": 75
+    }
+  ],
+  "count": 4,
+  "filters": {}
+}
+
+[1;33mTesting: Gateway Service - Dashboard[0m
+URL: http://localhost:3003/api/dashboard
+[0;32m✓ SUCCESS - HTTP 200[0m
+{
+  "success": true,
+  "data": {
+    "users": {
+      "success": true,
+      "data": [
+        {
+          "id": 1,
+          "name": "John Doe",
+          "email": "john@example.com",
+          "age": 30
+        },
+        {
+          "id": 2,
+          "name": "Jane Smith",
+          "email": "jane@example.com",
+          "age": 25
+        },
+        {
+          "id": 3,
+          "name": "Bob Johnson",
+          "email": "bob@example.com",
+          "age": 35
+        }
+      ],
+      "count": 3
+    },
+    "products": {
+      "success": true,
+      "data": [
+        {
+          "id": 1,
+          "name": "Laptop",
+          "description": "High-performance laptop",
+          "price": 999.99,
+          "category": "Electronics",
+          "stock": 50
+        },
+        {
+          "id": 2,
+          "name": "Smartphone",
+          "description": "Latest smartphone model",
+          "price": 699.99,
+          "category": "Electronics",
+          "stock": 100
+        },
+        {
+          "id": 3,
+          "name": "Coffee Mug",
+          "description": "Ceramic coffee mug",
+          "price": 12.99,
+          "category": "Home",
+          "stock": 200
+        },
+        {
+          "id": 4,
+          "name": "Book",
+          "description": "Programming guide",
+          "price": 29.99,
+          "category": "Books",
+          "stock": 75
+        }
+      ],
+      "count": 4,
+      "filters": {}
+    },
+    "summary": {
+      "totalUsers": 3,
+      "totalProducts": 4,
+      "timestamp": "2025-09-15T13:59:40.963Z"
+    }
+  }
+}
+
+=== Testing Complete ===
